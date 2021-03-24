@@ -31,7 +31,7 @@
                         <a href="#" class="nav-link animatedButton active">STRONA GŁÓWNA</a>
                     </li>
                     <li class="nav-item mx-1">
-                        <a href="#" class="nav-link animatedButton">KONTO</a>
+                        <a href="accountpage.html" class="nav-link animatedButton">KONTO</a>
                     </li>
                     <li class="nav-item mx-1">
                         <a href="addad.html" class="nav-link animatedButton">DODAJ OGŁOSZENIE</a>
