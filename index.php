@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +11,7 @@
     <title>Serwis ogłoszeń</title>
     <link rel="shortcut icon" href="img/logo.png" type="image">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -24,17 +28,18 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div id="mainmenu" class="collapse navbar-collapse order-last">
+            <div id="mainmenu" class="collapse navbar-collapse ">
                 
-                <ul class="navbar-nav ms-auto me-2">
+                <ul class="navbar-nav ms-auto me-2 order-first">
+                    <label class="nav-link disabled"><?php if(isset($_SESSION['logged'])) echo "Zalogowano jako: ".$_SESSION['email'] ?></label>
                     <li class="nav-item active">
                         <a href="#" class="nav-link animatedButton active">STRONA GŁÓWNA</a>
                     </li>
                     <li class="nav-item mx-1">
-                        <a href="accountpage.html" class="nav-link animatedButton">KONTO</a>
+                        <a href="accountpage.php" class="nav-link animatedButton">KONTO</a>
                     </li>
                     <li class="nav-item mx-1">
-                        <a href="addad.html" class="nav-link animatedButton">DODAJ OGŁOSZENIE</a>
+                        <a href="addad.php" class="nav-link animatedButton">DODAJ OGŁOSZENIE</a>
                     </li>
                 </ul>
 
@@ -52,116 +57,8 @@
         </div>
 
         <div class="ads"> 
-            <div class="row adbox">                
-                    <div class="col-3">
-                        <img src="telefon.jpg" alt="Zdjecie oferty" class="adsimg"/> 
-                    </div>
-                    <div class="col-7" style="margin-top: 10px;">
-                        <div class="adtitle">
-                            <a href="itemPage">Sprzedam telefon</a>
-                        </div> 
-                        <div class="adsdesc">
-                            Sprzedam ten telefon bo mnie denerwuje Sprzedam ten telefon bo mnie denerwuje Sprzedam ten telefon bo mnie denerwuje
-                        </div>
-                    </div>  
-                    <div class="col-2" style="margin-top: 10px;">
-                        <div class="adsprice">
-                            1500 PLN                            
-                        </div>
-                        <div class="adsname">                        
-                            Janek<br>
-                            Opolska 12
-                        </div>
-                    </div> 
-            </div>
-            <div class="row adbox">                
-                    <div class="col-3">
-                        <img src="telefon.jpg" alt="Zdjecie oferty" class="adsimg"/> 
-                    </div>
-                    <div class="col-7" style="margin-top: 10px;">
-                        <div class="adtitle">
-                            <a href="itemPage">Sprzedam telefon</a>
-                        </div> 
-                        <div class="adsdesc">
-                            Sprzedam ten telefon bo mnie denerwuje Sprzedam ten telefon bo mnie denerwuje Sprzedam ten telefon bo mnie denerwuje
-                        </div>
-                    </div>  
-                    <div class="col-2" style="margin-top: 10px;">
-                        <div class="adsprice">
-                            1500 PLN                            
-                        </div>
-                        <div class="adsname">                        
-                            Janek<br>
-                            Opolska 12
-                        </div>
-                    </div> 
-            </div>
-            <div class="row adbox">                
-                    <div class="col-3">
-                        <img src="telefon.jpg" alt="Zdjecie oferty" class="adsimg"/> 
-                    </div>
-                    <div class="col-7" style="margin-top: 10px;">
-                        <div class="adtitle">
-                            <a href="itemPage">Sprzedam telefon</a>
-                        </div> 
-                        <div class="adsdesc">
-                            Sprzedam ten telefon bo mnie denerwuje Sprzedam ten telefon bo mnie denerwuje Sprzedam ten telefon bo mnie denerwuje
-                        </div>
-                    </div>  
-                    <div class="col-2" style="margin-top: 10px;">
-                        <div class="adsprice">
-                            1500 PLN                            
-                        </div>
-                        <div class="adsname">                        
-                            Janek<br>
-                            Opolska 12
-                        </div>
-                    </div> 
-            </div>
-            <div class="row adbox">                
-                    <div class="col-3">
-                        <img src="telefon.jpg" alt="Zdjecie oferty" class="adsimg"/> 
-                    </div>
-                    <div class="col-7" style="margin-top: 10px;">
-                        <div class="adtitle">
-                            <a href="itemPage">Sprzedam telefon</a>
-                        </div> 
-                        <div class="adsdesc">
-                            Sprzedam ten telefon bo mnie denerwuje Sprzedam ten telefon bo mnie denerwuje Sprzedam ten telefon bo mnie denerwuje
-                        </div>
-                    </div>  
-                    <div class="col-2" style="margin-top: 10px;">
-                        <div class="adsprice">
-                            1500 PLN                            
-                        </div>
-                        <div class="adsname">                        
-                            Janek<br>
-                            Opolska 12
-                        </div>
-                    </div> 
-            </div>
-            <div class="row adbox">                
-                    <div class="col-3">
-                        <img src="telefon.jpg" alt="Zdjecie oferty" class="adsimg"/> 
-                    </div>
-                    <div class="col-7" style="margin-top: 10px;">
-                        <div class="adtitle">
-                            <a href="itemPage">Sprzedam telefon</a>
-                        </div> 
-                        <div class="adsdesc">
-                            Sprzedam ten telefon bo mnie denerwuje Sprzedam ten telefon bo mnie denerwuje Sprzedam ten telefon bo mnie denerwuje
-                        </div>
-                    </div>  
-                    <div class="col-2" style="margin-top: 10px;">
-                        <div class="adsprice">
-                            1500 PLN                            
-                        </div>
-                        <div class="adsname">                        
-                            Janek<br>
-                            Opolska 12
-                        </div>
-                    </div> 
-            </div>
+            
+        <?php if(!isset($_SESSION["no_ad"])){ include("showAds.php"); } else { echo $_SESSION["no_ad"]; unset($_SESSION["no_ad"]); } ?>            
 
         </div>
 
