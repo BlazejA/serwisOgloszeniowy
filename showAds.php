@@ -8,9 +8,18 @@ require_once("connect.php");
         die("Connection failed: " . $conn->connect_error);
     }else{
 
-        $result = $conn->query("SELECT * FROM ogloszenia");
 
-        $ad_exist = $result->num_rows;
+        if(isset($_GET['category'])){
+            $cat = $_GET['category'];
+            $result = $conn->query("SELECT * FROM ogloszenia WHERE category = '{$cat}'");            
+            $ad_exist = $result->num_rows;
+            
+        }
+        else{
+            $result = $conn->query("SELECT * FROM ogloszenia");
+            $ad_exist = $result->num_rows;
+            
+        }
                         
         if ($ad_exist>0){ 
             
@@ -32,18 +41,18 @@ require_once("connect.php");
                 <img src="telefon.jpg" alt="Zdjecie oferty" class="adsimg"/> 
             </div>
             <div class="col-7" style="margin-top: 10px;">
-                <div class="adtitle">
+                <div class="adtitle text-break">
                     <a href="ad.php?id=<?php echo $id; ?>"><?php echo $title; ?></a>                        
                 </div> 
-                <div class="adsdesc">
-                <?php echo $description; ?> 
+                <div class="adsdesc text-break">
+                    <?php echo $description; ?> 
                 </div>
             </div>  
             <div class="col-2" style="margin-top: 10px;">
-                <div class="adsprice">
+                <div class="adsprice text-break">
                     <?php echo $price; ?> zł                         
                 </div>
-                <div class="adsname">                        
+                <div class="adsname text-break">                        
                 <?php echo $name; ?> <br>
                 <?php echo $city; ?> 
                 </div>
@@ -53,7 +62,7 @@ require_once("connect.php");
         <?php 
             }
         }else{
-            $_SESSION['no_ad']="Brak oferty!";
+            echo "<div class='my-5 text-center' style='height: 100%;'><h3>Brak ofert!</h3></div>";
         }
     }
 

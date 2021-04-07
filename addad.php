@@ -12,7 +12,7 @@ session_start();
     <title>Dodaj ogłoszenie!</title>
     <link rel="shortcut icon" href="img/logo.png" type="image">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link rel="stylesheet"href="css/style.css"> 
+    <link rel="stylesheet"href="style.css"> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
 </head>
 <body>
@@ -124,9 +124,13 @@ session_start();
                             Wybierz kategorię
                         </button>
                         <ul class="dropdown-menu" id="dropdown" aria-labelledby="dropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><a class="dropdown-item" href="#">Motoryzacja</a></li>
+                            <li><a class="dropdown-item" href="#">Nieruchomości</a></li>
+                            <li><a class="dropdown-item" href="#">Elektronika</a></li>
+                            <li><a class="dropdown-item" href="#">Ubrania</a></li>
+                            <li><a class="dropdown-item" href="#">Sport</a></li>
+                            <li><a class="dropdown-item" href="#">Książki</a></li>
+                            <li><a class="dropdown-item" href="#">Praca</a></li>
                         </ul>
                         <input type="hidden" name="category" id="category">
                     </div>

@@ -8,8 +8,8 @@ html, body{
 .page{
   width: 80%;
   margin: 0px auto;
-  margin-top: 7%;
-  overflow: auto;  
+  margin-top: 7%; 
+  height: 100%;
 }
 .ads{
   height: 100%;
@@ -58,10 +58,7 @@ html, body{
 .imagesize{
   height: 50%;
 }
-.coto{
-  overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-line-clamp: 5; /* number of lines to show */
-   -webkit-box-orient: vertical;
+
+.categorytext a{ 
+  text-decoration: none;
 }
