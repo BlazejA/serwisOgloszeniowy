@@ -52,7 +52,19 @@ session_start();
         
         <div class="pagenav">
             <div>
-                kategoria: telefony
+                
+                <div class="dropdown mt-1"> 
+                Kategoria:               
+                    <button class="btn-sm btn-outline-dark dropdown-toggle" type="button" id="dropbtn" data-bs-toggle="dropdown" aria-expanded="false">
+                        Wybierz kategorię
+                    </button>
+                    <ul class="dropdown-menu" id="dropdown" aria-labelledby="dropdown">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                    <input type="hidden" name="category" id="category">
+                </div>
             </div>
         </div>
 

@@ -74,7 +74,7 @@ require_once("connect.php");
 
             }            
         }else{
-            $_SESSION['user_no_ad']="Brak oferty!";
+            echo "Brak ofert!";
         }
     }
 

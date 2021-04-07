@@ -1,5 +1,55 @@
 <?php
 session_start();
+
+require_once "connect.php"; 
+
+$conn = new mysqli($host, $db_user, $db_password, $db_name);
+$sql = "";
+
+if(isset($_POST['changeData'])){   
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+      }
+
+    if($_POST['email'] != ""){
+        $sql = "UPDATE uzytkownicy SET email='".$_POST['email']."' WHERE user_id=".$_SESSION["user_id"];
+        unset($_SESSION['email']);
+        $_SESSION['email'] = $_POST['email'];
+    }
+    if($_POST['phoneNumber'] != ""){
+        $sql = "UPDATE uzytkownicy SET phone_number='".$_POST['phoneNumber']."' WHERE user_id=".$_SESSION["user_id"];
+        unset($_SESSION['phonenumber']);
+        $_SESSION['phonenumber'] = $_POST['phoneNumber'];
+    }
+    if($_POST['password'] != ""){
+        
+        if($_POST['oldpassword'] != ""){
+
+            $result = $conn->query("SELECT * FROM uzytkownicy WHERE user_id=".$_SESSION["user_id"]);
+            $row = $result->fetch_assoc();
+
+            if(password_verify($_POST['password'], $row['password'])){
+                $password=$_POST['password'];
+                $sql = "UPDATE uzytkownicy SET password='" . password_hash($password,PASSWORD_DEFAULT) . "' WHERE user_id=".$_SESSION["user_id"];                 
+            }else{
+                $_SESSION['error_wrong_pass'] = "Błędne hasło!";
+            }
+        }else{
+            $_SESSION['error_wrong_pass'] = "Podaj stare hasło!";
+        }
+    }
+    if(!empty($_POST['email']) || !empty($_POST['phoneNumber']) || (!empty($_POST['password']) && !empty($_POST['oldpassword']))){
+        if ($conn->query($sql)) {
+            $_SESSION['data_changed']="Dane zostały zmienione!";
+            header("loaction: accountpage.php");
+        } else {
+            echo "Error updating record: " . $conn->error;
+        }
+    }
+}
+$conn->close();
+
 ?>
 
 <!DOCTYPE html>
@@ -12,6 +62,7 @@ session_start();
     <link rel="shortcut icon" href="img/logo.png" type="image">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet"href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
 </head>
 <body>
 
@@ -88,30 +139,53 @@ if(!isset($_SESSION['logged'])){
                 </ul>
             </nav>
         </div>
+
         <div class="col-5" id="account_data" style="display: none;">                
             <p>E-mail: <?php echo $_SESSION['email']; ?> </p>
-            <p>Numer telefonu: <?php if(isset($_SESSION['phone_number'])) echo $_SESSION['phone_number']?> </p>
+            <p>Numer telefonu: <?php if(isset($_SESSION['phonenumber'])) echo $_SESSION['phonenumber'] ?> </p>
             <button class="btn btn-sm btn-outline-secondary" onclick="showSection()">Edytuj dane</button>
         </div>
+
         <div class="col-9" id="my_ad" style="display: none;">
-            <?php if(!isset($_SESSION["user_no_ad"])){ include("showUserAds.php"); } else { echo $_SESSION["user_no_ad"]; unset($_SESSION["user_no_ad"]); } ?>
+            <?php include("showUserAds.php"); ?>
         </div> 
+
         <div class="col-4" style="display: none;" id="change">
-            <form>
+            <form method="POST">
+
                 Nowy mail:
                 <input type="email" id="inputEmail" name="email" class="form-control" placeholder="nazwa@domena.pl">
                 Nowy numer telefonu:
                 <input type="tel" id="inputPhoneNumber" class="form-control" placeholder="505101202" maxlength="9"
                     pattern="[0-9]{9}" title="Wpisz 9 cyfrowy numer telefonu np.505123123" name="phoneNumber">
                 Zmiana hasła:                
-                <input type="password" id="password" class="form-control" placeholder="haslo1" maxlength="20"
+                <input type="password" id="password" class="form-control" placeholder="NoweHaslo1" maxlength="20"
                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="password"
                     title="Hasło musi składać się z minimum 6 znaków oraz zawierać przynajmniej jedną małą i jedną dużą literę oraz jedną cyfrę">
+                Jeśli chcesz zmienić hasło, podaj stare hasło:
+                <input type="password" id="password" class="form-control" placeholder="StareHaslo1" maxlength="20"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="oldpassword"
+                    title="Hasło musi składać się z minimum 6 znaków oraz zawierać przynajmniej jedną małą i jedną dużą literę oraz jedną cyfrę">
+                    <?php
+                    if(isset($_SESSION['error_wrong_pass'])){
+                        echo '<div id="wrong_data" style="color: red;">'. $_SESSION['error_wrong_pass'] .'</div>';
+                        unset($_SESSION['error_wrong_pass']);
+                    }
+                    ?>
+                
                 
                 <input type="submit" class="btn btn-primary mt-2" name="changeData" value="Zmień dane">
 
             </form>
         </div>
+    </div>
+    <div>
+    <?php
+        if(isset($_SESSION['data_changed'])){
+            echo '<div id="hidesuccess" style="color: green;">'. $_SESSION['data_changed'] .'</div>';
+            unset($_SESSION['data_changed']);
+        }
+    ?>
     </div>
 </div>
   <?php
@@ -151,6 +225,12 @@ if(!isset($_SESSION['logged'])){
         else{
             section.style.display = "none"; 
         }
+    }
+
+    setTimeout(fade_out, 5000);
+
+    function fade_out() {
+    $("#hidesuccess").fadeOut().empty();
     }
 </script>
 
