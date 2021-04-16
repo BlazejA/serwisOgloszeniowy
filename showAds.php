@@ -7,7 +7,7 @@ require_once("connect.php");
     if($conn->connect_error){
         die("Connection failed: " . $conn->connect_error);
     }else{
-
+        
 
         if(isset($_GET['category'])){
             $cat = $_GET['category'];
@@ -36,11 +36,13 @@ require_once("connect.php");
             $id= $row["id"]; 
 
         ?>
-        <div class="row adbox">                
-            <div class="col-3">
-                <img src="telefon.jpg" alt="Zdjecie oferty" class="adsimg"/> 
+        <div class="row adbox mt-1">                
+            <div class="col-sm-3 col-12">
+                <a href="ad.php?id=<?php echo $id; ?>" style="margin:-10px;">
+                    <img src="img/telefon.jpg" alt="Zdjecie oferty" class="adsimg" width="100%"/>
+                </a>  
             </div>
-            <div class="col-7" style="margin-top: 10px;">
+            <div class="col-7 text-center text-sm-start" style="margin-top: 10px;">
                 <div class="adtitle text-break">
                     <a href="ad.php?id=<?php echo $id; ?>"><?php echo $title; ?></a>                        
                 </div> 
@@ -48,14 +50,14 @@ require_once("connect.php");
                     <?php echo $description; ?> 
                 </div>
             </div>  
-            <div class="col-2" style="margin-top: 10px;">
+            <div class="col-sm-2 col-5" style="margin-top: 10px;">
                 <div class="adsprice text-break">
                     <?php echo $price; ?> zł                         
                 </div>
                 <div class="adsname text-break">                        
                 <?php echo $name; ?> <br>
                 <?php echo $city; ?> 
-                </div>
+                </div>                
             </div>
         </div>        
        

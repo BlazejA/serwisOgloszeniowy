@@ -106,9 +106,9 @@ if(!isset($_SESSION['logged'])){
 ?>    
     <div class="mt-4 col-4 offset-4 row text-center">
         <strong class="mt-5">Jeśli posiadasz konto</strong>
-        <a href="loginpage.php" class="btn btn-primary">Zaloguj się!</a> <br> 
+        <a href="loginpage.php" class="btn btn-primary mt-1">Zaloguj się!</a> <br> 
         <strong class="mt-5">Jeśli jesteś u nas pierwszy raz</strong>  
-        <a href="newaccount.php" class="btn btn-primary">Załóż konto!</a>  
+        <a href="newaccount.php" class="btn btn-primary mt-1">Załóż konto!</a>  
     </div>
 <?php
 } else{
@@ -124,7 +124,7 @@ if(!isset($_SESSION['logged'])){
     }    
     ?>
     <div class="row">
-        <div class="col-3" >
+        <div class="col-6 col-md-3" >
             <nav style="border-right:1px solid grey;">
                 <ul class="nav flex-column" style="font-size:large;">
                     <li class="nav-item">
@@ -146,11 +146,11 @@ if(!isset($_SESSION['logged'])){
             <button class="btn btn-sm btn-outline-secondary" onclick="showSection()">Edytuj dane</button>
         </div>
 
-        <div class="col-9" id="my_ad" style="display: none;">
+        <div class="col-12 col-md-9" id="my_ad" style="display: none;">
             <?php include("showUserAds.php"); ?>
         </div> 
 
-        <div class="col-4" style="display: none;" id="change">
+        <div class="col-12 col-md-4 mt-md-0 mt-2" style="display: none;" id="change">
             <form method="POST">
 
                 Nowy mail:
@@ -195,26 +195,32 @@ if(!isset($_SESSION['logged'])){
 <script>
     function showData() {
         var data = document.getElementById("account_data");
-        var ad = document.getElementById("my_ad");
+        var ad = document.getElementById("my_ad");        
+        var section = document.getElementById("change");
         if (data.style.display == "none" ) {
             data.style.display = "block";
-            ad.style.display = "none";        
+            ad.style.display = "none";             
+            section.style.display = "none";      
         }
         else {
             data.style.display = "none";
             ad.style.display = "none";
+            section.style.display = "none";
         }
     }
     function showAd() {
         var data = document.getElementById("account_data");
         var ad = document.getElementById("my_ad");
+        var section = document.getElementById("change");
         if (ad.style.display == "none" ) {
             ad.style.display = "block";
-            data.style.display = "none";        
+            data.style.display = "none"; 
+            section.style.display = "none";
         }
         else {
             data.style.display = "none";
             ad.style.display = "none";
+            section.style.display = "none";
         }
     }
     function showSection(){

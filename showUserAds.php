@@ -36,8 +36,10 @@ require_once("connect.php");
                     <input type="submit" value="Usuń" name="delete">
                 </form>
             </div>                        
-            <div class="col-3">
-                <img src="telefon.jpg" alt="Zdjecie oferty" class="adsimg"/> 
+            <div class="col-12 col-md-3">
+                <a href="ad.php?id=<?php echo $id; ?>">
+                    <img src="img/telefon.jpg" alt="Zdjecie oferty" class="adsimg"/>
+                </a> 
             </div>
             <div class="col-7" style="margin-top: 10px;">
                 <div class="adtitle">
@@ -47,7 +49,7 @@ require_once("connect.php");
                 <?php echo $description; ?> 
                 </div>
             </div>  
-            <div class="col-2" style="margin-top: 10px;">
+            <div class="col-sm-2 col-5" style="margin-top: 10px;">
                 <div class="adsprice">
                     <?php echo $price; ?> zł                         
                 </div>

@@ -126,13 +126,13 @@
                     </div>
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img src="upload/GOPR4711.JPG" class="d-block w-100" alt="...">
+                        <img src="upload/GOPR4711.JPG" class="d-block w-100" alt="Zdjęcie oferty">
                       </div>
                       <div class="carousel-item">
-                        <img src="upload/GOPR5469.JPG" class="d-block w-100" alt="...">
+                        <img src="upload/GOPR5469.JPG" class="d-block w-100" alt="Zdjęcie oferty">
                       </div>
                       <div class="carousel-item">
-                        <img src="upload/GOPR5582.JPG" class="d-block w-100" alt="...">
+                        <img src="upload/GOPR5582.JPG" class="d-block w-100" alt="">
                       </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">

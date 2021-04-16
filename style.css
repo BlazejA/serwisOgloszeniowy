@@ -5,19 +5,13 @@ html, body{
   padding:0; 
   font-family: 'Open Sans', sans-serif;
 }
-.page{
-  width: 80%;
-  margin: 0px auto;
-  margin-top: 7%; 
-  height: 100%;
-}
+
 .ads{
   height: 100%;
 }
 .adbox{  
   background-color: rgba(95, 95, 95, 0.1);
   border: 1px solid rgb(0, 0, 0, 0.1);
-  margin: 0.5%; 
 }
 .adsimg{
   width: 100%;
@@ -61,4 +55,7 @@ html, body{
 
 .categorytext a{ 
   text-decoration: none;
+}
+.btn.btn-secondary.dropdown-toggle.is-invalid {
+  border-color: #dc3545;
 }

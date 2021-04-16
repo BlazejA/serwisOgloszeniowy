@@ -48,40 +48,63 @@ session_start();
         </nav>
 </header>
 
-<div class="container page">
+<div class="container mt-5 pt-5">
         
     <div class="row">
         <p class="text-center fs-1">Witaj na ogłoszenia sjz!</p>
     </div>
-    <div class="row text-center">
+    <div class="row text-center mt-5">
         <div class="row categorytext">
-            <div class="col-3 text-break my-1">
-                <a href="adslist.php">Pokaż wszystko</a>
+            <div class="col-6 col-sm-3 text-wrap my-1">
+                <a href="adslist.php">                
+                    <img src="img/all.png" alt="" width="50px" height="50px"></img>
+                    <p>Pokaż wszystko</p>
+                </a>
             </div>
-            <div class="col-3 my-1">
-                <a href="adslist.php?category=Motoryzacja">Motoryzacja</a>
+            <div class="col-6 col-sm-3 my-1">
+                <a href="adslist.php?category=Motoryzacja">
+                    <img src="img/car.png" alt="" width="50px" height="50px"></img>
+                    <p>Motoryzacja</p>
+                </a>
             </div>
-            <div class="col-3 my-1">
-                <a href="adslist.php?category=Nieruchomości">Nieruchomości</a>
+            <div class="col-6 col-sm-3 my-1">
+                <a href="adslist.php?category=Nieruchomości">
+                    <img src="img/house.png" alt="" width="50px" height="50px"></img>
+                    <p>Nieruchomości</p>
+                </a>
             </div>
-            <div class="col-3 my-1">
-                <a href="adslist.php?category=Praca">Praca</a>
+            <div class="col-6 col-sm-3 my-1">
+                <a href="adslist.php?category=Praca">
+                    <img src="img/work.png" alt="" width="50px" height="50px"></img>
+                    <p>Praca</p>
+                </a>
             </div>        
-            <div class="col-3 my-1">
-                <a href="adslist.php?category=Elektronika">Elektronika</a>
+            <div class="col-6 col-sm-3 my-1">
+                <a href="adslist.php?category=Elektronika">
+                    <img src="img/electronics.png" alt="" width="50px" height="50px"></img>
+                    <p>Elektronika</p>
+                </a>
             </div>
-            <div class="col-3 my-1">
-                <a href="adslist.php?category=Ubrania">Ubrania</a>
+            <div class="col-6 col-sm-3 my-1">
+                <a href="adslist.php?category=Ubrania">
+                    <img src="img/clothes.png" alt="" width="50px" height="50px"></img>
+                    <p>Ubrania</p>
+                </a>
             </div>
-            <div class="col-3 my-1">
-                <a href="adslist.php?category=Sport">Sport</a>
+            <div class="col-6 col-sm-3 my-1">
+                <a href="adslist.php?category=Sport">
+                    <img src="img/sport.png" alt="" width="50px" height="50px"></img>
+                    <p>Sport</p>
+                </a>
             </div>
-            <div class="col-3 my-1">
-                <a href="adslist.php?category=Książki">Książki</a>
+            <div class="col-6 col-sm-3 my-1">
+                <a href="adslist.php?category=Książki">
+                    <img src="img/book.png" alt="" width="50px" height="50px"></img>
+                    <p>Książki</p>
+                </a>
             </div>
         </div>
     </div>
-
 
 </div>
  

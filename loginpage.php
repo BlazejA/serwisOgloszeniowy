@@ -51,7 +51,7 @@ session_start();
 
 
 
-    <div class="mt-4 col-4 offset-4 p-2" style="background-color: rgb(240, 240, 240);">
+    <div class="mt-4 col-10 offset-1 col-sm-6 offset-sm-3 col-md-4 offset-md-4 p-2" style="background-color: rgb(240, 240, 240);">
 
         <form class="ms-3 me-3 mt-3" action="login.php" method="POST">
             <header class="mb-3 text-secondary">

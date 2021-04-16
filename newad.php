@@ -32,7 +32,7 @@ if($conn->connect_error){
 
         $userid = !empty($userid) ? "$userid" : NULL;
         $email = !empty($email) ? "$email" : NULL;
-        $phonenumber = !empty($phonenumber) ? "$phonenumber" : "NULL";
+        $phonenumber = !empty($phonenumber) ? "$phonenumber" : "BRAK";
         $city = !empty($city) ? "$city" : "NULL";
         $zipcode = !empty($zipcode) ? "$zipcode" : "NULL";
         $street = !empty($street) ? "$street" : "NULL";
@@ -41,6 +41,8 @@ if($conn->connect_error){
         $description = !empty($description) ? "$description" : "NULL";
         $category = !empty($category) ? "$category" : "NULL";
         $price = !empty($price) ? "$price" : "NULL";
+
+        $name="NULL";
 
 
         $sql = "INSERT INTO ogloszenia VALUES (NULL, '$userid', ' $email', 

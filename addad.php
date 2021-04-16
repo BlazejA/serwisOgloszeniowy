@@ -71,12 +71,12 @@ session_start();
             </header>
 
             <div class="row">
-                <div class="col-6">
+                <div class="col-sm-6 col-7">
                 <label for="inputEmail" class="form-label">E-mail</label>
                 <input type="email" name="email" id="inputEmail" class="form-control" placeholder="nazwa@domena.pl"
                     value="<?php if(isset($_SESSION['logged'])) echo $_SESSION["email"]; ?>" required>            
                 </div>
-                <div class="col-6">
+                <div class="col-sm-6 col-5">
                 <label for="inputPhoneNumber" class="form-label">Numer telefonu</label>
                 <input type="tel" id="inputPhoneNumber" class="form-control" placeholder="505101202" maxlength="9" pattern="[0-9]{9}"
                     title="Wpisz 9 cyfrowy numer telefonu np.505123123" name="phone_number"
@@ -88,12 +88,12 @@ session_start();
             <div class="mt-2"> 
                 <label class="form-label col-auto" for="city">Adres</label>               
                 <div class="form-group row">                                    
-                    <div class="col-2">
+                    <div class="col-7 col-sm-6 col-lg-2">
                         <input type="text" id="city" class="form-control " placeholder="Jastrzębie-zdrój" maxlength="20" name="city" required>
                         <small class="form-text text-muted">Miejscowość</small>
                     </div>
                 
-                    <div class="form-group col-sm-2 col-1">   
+                    <div class="form-group col-5 col-sm-6 col-lg-2">   
                         <div class="input-group">                
                             <input type="text" id="zipcode" class="form-control" placeholder="40-250" maxlength="6"
                                 pattern="^[0-9]{2}-[0-9]{3}$" title="Wpisz kod pocztowy np. 40-250" name="zipcode"
@@ -104,11 +104,11 @@ session_start();
                         <small class="form-text text-muted">Kod pocztowy</small>
                     </div>         
 
-                    <div class="form-group col-2">                    
+                    <div class="form-group col-7 col-sm-6 col-lg-2 mt-lg-0  mt-1">                    
                         <input type="text" id="street" class="form-control" placeholder="Kwiatowa" maxlength="20" name="street">
                         <small class="form-text text-muted">Ulica</small>
                     </div>
-                    <div class="form-group col-2">                    
+                    <div class="form-group col-5 col-sm-6 col-lg-2 mt-lg-0 mt-1">                    
                         <input type="text" id="homenumber" class="form-control" placeholder="13a" maxlength="5" name="homenumber">
                         <small class="form-text text-muted">Numer domu</small>
                     </div>
@@ -117,25 +117,22 @@ session_start();
             </div>
 
             <div class="row">
-                <div class="col-3">
-                    <label for="dropbtn" class="mt-2" class="form-label">Kategoria</label>
-                    <div class="dropdown mt-1">                
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropbtn" data-bs-toggle="dropdown" aria-expanded="false">
-                            Wybierz kategorię
-                        </button>
-                        <ul class="dropdown-menu" id="dropdown" aria-labelledby="dropdown">
-                            <li><a class="dropdown-item" href="#">Motoryzacja</a></li>
-                            <li><a class="dropdown-item" href="#">Nieruchomości</a></li>
-                            <li><a class="dropdown-item" href="#">Elektronika</a></li>
-                            <li><a class="dropdown-item" href="#">Ubrania</a></li>
-                            <li><a class="dropdown-item" href="#">Sport</a></li>
-                            <li><a class="dropdown-item" href="#">Książki</a></li>
-                            <li><a class="dropdown-item" href="#">Praca</a></li>
-                        </ul>
-                        <input type="hidden" name="category" id="category">
+                <div class=" col-12 col-sm-6 col-lg-3 mt-2 mt-lg-0">
+                    <label for="dropbtn" class="form-label">Kategoria</label>
+                    <div>                                   
+                        <select class="form-select" id="dropdown" name="category" required>
+                            <option selected disabled>Wybierz kategorię</option>
+                            <option>Motoryzacja</option>
+                            <option>Nieruchomości</option>
+                            <option>Elektronika</option>
+                            <option>Ubrania</option>
+                            <option>Sport</option>
+                            <option>Książki</option>
+                            <option>Praca</option>
+                         </select>
                     </div>
                 </div>
-                <div class="col-2">
+                <div class=" col-12 col-sm-6 col-lg-2 mt-2 mt-lg-0">
                     <label for="price" class="form-label">Cena</label>
                     <div class="input-group"> 
                         <input id="price" class="form-control" placeholder="1000" name="price" required>
@@ -151,7 +148,7 @@ session_start();
             <textarea id="inputDescr" class="form-control" placeholder="Sprzedam mieszkanie do remontu." maxlength="800" rows="3"
                     name="descri" required></textarea>  
 
-            <label for="file" class="form-label">Dodaj zdjęcia</label>      
+            <label for="file" class="form-label mt-2">Dodaj zdjęcia</label>      
             <input type='file' name='file' class="form-control" id="file" multiple>
 
             <input type="submit" class="btn btn-primary mt-2" name="addnewad" value="Dodaj ogłoszenie!">
@@ -160,20 +157,6 @@ session_start();
         
         </div>
     </div>
-   
-
-      
-    <script>     
-        $('#dropdown li').on('click', function(){
-            var selText = $(this).text();
-            document.getElementById("dropbtn").innerHTML=selText;
-            document.getElementById("category").value = selText;
-        });
-
-
-        
-
-    </script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 

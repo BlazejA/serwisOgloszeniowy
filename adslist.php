@@ -48,7 +48,7 @@ session_start();
         </nav>
 </header>
 
-    <div class="container page">
+    <div class="container mt-5 pt-5">
         
         <div class="pagenav">
             <div>
@@ -59,14 +59,14 @@ session_start();
                         Wybierz kategorię
                     </button>
                     <ul class="dropdown-menu" id="dropdown" aria-labelledby="dropdown">
-                        <li><a class="dropdown-item" href="#">Pokaż wszystko</a></li>
-                        <li><a class="dropdown-item" href="#">Motoryzacja</a></li>
-                        <li><a class="dropdown-item" href="#">Nieruchomości</a></li>
-                        <li><a class="dropdown-item" href="#">Elektronika</a></li>
-                        <li><a class="dropdown-item" href="#">Ubrania</a></li>
-                        <li><a class="dropdown-item" href="#">Sport</a></li>
-                        <li><a class="dropdown-item" href="#">Książki</a></li>
-                        <li><a class="dropdown-item" href="#">Praca</a></li>
+                        <li><a class="dropdown-item" href="adslist.php">Pokaż wszystko</a></li>
+                        <li><a class="dropdown-item" href="adslist.php?category=Motoryzacja">Motoryzacja</a></li>
+                        <li><a class="dropdown-item" href="adslist.php?category=Nieruchomości">Nieruchomości</a></li>
+                        <li><a class="dropdown-item" href="adslist.php?category=Elektronika">Elektronika</a></li>
+                        <li><a class="dropdown-item" href="adslist.php?category=Ubrania">Ubrania</a></li>
+                        <li><a class="dropdown-item" href="adslist.php?category=Sport">Sport</a></li>
+                        <li><a class="dropdown-item" href="adslist.php?category=Książki">Książki</a></li>
+                        <li><a class="dropdown-item" href="adslist.php?category=Praca">Praca</a></li>
                     </ul>
                     <input type="hidden" name="category" id="category">
                 </div>
